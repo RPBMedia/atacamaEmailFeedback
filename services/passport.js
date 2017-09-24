@@ -11,10 +11,9 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id)
-    .then(user => {
-      done(null, user);
-    });
+  User.findById(id).then(user => {
+    done(null, user);
+  });
 });
 
 passport.use(
@@ -25,19 +24,17 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       //Save new user record into mongoDB
-      User.findOne({ googleId: profile.id }).then(existingUser => {
-        if (existingUser) {
-          console.log('User already exists. No new record will be created');
-          done(null, existingUser);
-        } else {
-          console.log('New user detected! Creating new record...');
-          new User({ googleId: profile.id }).save().then(user => {
-            done(null, user);
-          });
-        }
-      });
+      const exisintgUser = await User.findOne({ googleId: profile.id });
+
+      if (existingUser) {
+        console.log('User already exists. No new record will be created');
+        return done(null, existingUser);
+      }
+      console.log('New user detected! Creating new record...');
+      const user = await new User({ googleId: profile.id }).save();
+      return done(null, user);
     }
   )
 );
