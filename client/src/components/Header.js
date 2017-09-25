@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import BillingWrapper from './BillingWrapper';
 
 class Header extends Component {
-
-  renderContent(){
+  renderContent() {
     switch (this.props.auth) {
       case null:
-        return
+        return;
       case false:
         return (
           <li>
@@ -17,11 +17,14 @@ class Header extends Component {
       //if its not null or false, we can asume the user is logged in
       //because we have auth data
       default:
-      return (
-        <li>
-          <a href="/api/logout">Logout</a>
-        </li>
-      );
+        return [
+          <li key="billing_wrapper_id">
+            <BillingWrapper />
+          </li>,
+          <li key="logout_id">
+            <a href="/api/logout">Logout</a>
+          </li>
+        ];
     }
   }
 
@@ -30,12 +33,13 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper nav-header">
-          <Link className="left brand-logo" to={this.props.auth ? '/surveys' : '/'}>
+          <Link
+            className="left brand-logo"
+            to={this.props.auth ? '/surveys' : '/'}
+          >
             Atacama
           </Link>
-          <ul className="right">
-            {this.renderContent()}
-          </ul>
+          <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
     );

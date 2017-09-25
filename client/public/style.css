@@ -10,3 +10,11 @@
   background-size:contain;
   height: 100%;*/
 }
+
+.btn {
+  background: linear-gradient(rgba(212,228,239,1), rgba(103,165,219,1));
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
