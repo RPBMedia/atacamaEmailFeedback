@@ -26,7 +26,7 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       //Save new user record into mongoDB
-      const exisintgUser = await User.findOne({ googleId: profile.id });
+      const existingUser = await User.findOne({ googleId: profile.id });
 
       if (existingUser) {
         console.log('User already exists. No new record will be created');
