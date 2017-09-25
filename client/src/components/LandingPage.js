@@ -2,7 +2,7 @@ import React from 'react';
 
 const LandingPage = () => {
   return(
-    <div style={{textAlign: 'center'}}>
+    <div className="landing-page">
       <h1>
         Atacama
       </h1>

@@ -1,0 +1,12 @@
+.nav-header {
+  background: linear-gradient(rgba(212,228,239,1), rgba(103,165,219,1));
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.landing-page {
+  text-align: center;
+  /*background: url('https://cbsnews1.cbsistatic.com/hub/i/2014/03/09/ea2747e4-cdd4-4f19-a70b-1b831d381239/alma-main.jpg') no-repeat;
+  background-size:contain;
+  height: 100%;*/
+}
