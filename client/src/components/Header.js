@@ -18,6 +18,9 @@ class Header extends Component {
       //because we have auth data
       default:
         return [
+          <li key="available_credits_id" className='creditsLabel'>
+            Credits: <b>{this.props.auth.credits}</b>
+          </li>,
           <li key="billing_wrapper_id">
             <BillingWrapper />
           </li>,

@@ -18,3 +18,8 @@
 .btn:hover {
   opacity: 0.7;
 }
+
+.creditsLabel {
+  padding: 0px 15px;
+  font-size: 18px;
+}
