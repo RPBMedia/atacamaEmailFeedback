@@ -31,6 +31,18 @@ app.use(passport.session());
 authRoutes(app);
 billingRoutes(app);
 
+//Prod configuration only
+if(process.env.NODE_ENV === 'production') {
+  // Express will serve production assets like main.js file
+  app.use(express.static('client/build'));
+
+  //Serve index-html if the route is not recognized
+  const path = require('path');
+  app.get('*', (req ,res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`<----Magic is happening at port ${PORT}--->`);
