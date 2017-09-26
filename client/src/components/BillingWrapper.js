@@ -6,7 +6,8 @@ import * as actions from '../actions';
 class BillingWrapper extends Component {
 
   render() {
-    
+    console.log(process.env.REACT_APP_STRIPE_KEY);
+    debugger;
     return(
 
       <StripeCheckout
@@ -22,6 +23,7 @@ class BillingWrapper extends Component {
       </StripeCheckout>
     );
   }
+
 
 }
 
