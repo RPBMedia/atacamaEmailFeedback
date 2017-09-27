@@ -6,11 +6,13 @@ const bodyParser = require('body-parser')
 //Order of the require statements matters. User schema must be created
 //Before we use passport
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 const keys = require('./config/keys');
 
 const authRoutes = require('./routes/authRoutes');
 const billingRoutes = require('./routes/billingRoutes');
+const surveyRoutes = require('./routes/surveyRoutes');
 
 mongoose.connect(keys.mongoURI);
 
@@ -30,6 +32,7 @@ app.use(passport.session());
 
 authRoutes(app);
 billingRoutes(app);
+surveyRoutes(app);
 
 //Prod configuration only
 if(process.env.NODE_ENV === 'production') {

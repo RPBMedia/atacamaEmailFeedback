@@ -7,7 +7,7 @@ class BillingWrapper extends Component {
 
   render() {
     console.log(process.env.REACT_APP_STRIPE_KEY);
-    debugger;
+    
     return(
 
       <StripeCheckout
