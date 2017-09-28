@@ -16,6 +16,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+
 passport.use(
   new GoogleStrategy(
     {
@@ -23,7 +24,7 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
       proxy: true
-      
+
     },
     async (accessToken, refreshToken, profile, done) => {
       //Save new user record into mongoDB
