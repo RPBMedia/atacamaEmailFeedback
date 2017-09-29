@@ -6,14 +6,9 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import LandingPage from './LandingPage';
+import Dashboard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
 
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
-
-const SurveyNew = () => {
-  return <h2>SurveyNew</h2>;
-};
 
 class App extends Component {
 
