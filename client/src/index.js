@@ -17,7 +17,9 @@ window.axios = axios;
 //test survey
 // const survey = { title: 'Atacama test: My title', subject: 'My subject', recipients: 'rui.palma.baiao@gmail.com,martacalado20@gmail.com', body:'Email test content'}
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk, logger));
+// const store = createStore(reducers, {}, applyMiddleware(reduxThunk, logger));
+//With no logger
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

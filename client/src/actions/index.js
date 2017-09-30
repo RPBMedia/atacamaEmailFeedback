@@ -19,3 +19,15 @@ export const handleBillingToken = (token) => async dispatch => {
     payload: res.data
   });
 };
+
+export const createSurvey = (values, history) => async dispatch => {
+
+  const response = await axios.post('/api/surveys', values);
+
+  history.push('/surveys');
+  dispatch({
+    type: FETCH_USER,
+    payload: response.data
+  });
+
+}
