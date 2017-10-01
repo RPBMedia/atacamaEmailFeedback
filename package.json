@@ -1,3 +1,5 @@
+
+
 {
   "name": "atacamaemailfeedback",
   "version": "1.0.0",
@@ -11,9 +13,10 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook_ngrok\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook": "ngrok http 5000"
+    "webhook_localtunnel": "lt -p 5000 -s kajhdakjhdaksdhaksjh",
+    "webhook_ngrok": "ngrok http 5000"
   },
   "repository": {
     "type": "git",

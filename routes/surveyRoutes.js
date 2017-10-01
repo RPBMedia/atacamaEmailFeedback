@@ -33,12 +33,15 @@ module.exports = app => {
 
     const uniqueEvents = _.chain(req.body)
       .map(({ email, url }) => {
-        const match = eventPath.test(new URL(url).pathname);
+        console.log('URL: ', url);
+        if(url){          
+          const match = eventPath.test(new URL(url).pathname);
 
-        if (match) {
-          //match can be null, so destructuring is a
-          //bad idea because it might return null.something
-          return { email, surveyId: match.surveyId, choice: match.choice };
+          if (match) {
+            //match can be null, so destructuring is a
+            //bad idea because it might return null.something
+            return { email, surveyId: match.surveyId, choice: match.choice };
+          }
         }
       })
       .compact()
