@@ -11,8 +11,8 @@
   height: 100%;*/
 }
 
-.btn {
-  background: linear-gradient(rgba(212,228,239,1), rgba(103,165,219,1));
+.add-credits {
+  background: linear-gradient(rgba(241,231,103,1), rgba(254,182,69,1));
 }
 
 .btn:hover {

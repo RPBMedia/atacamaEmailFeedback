@@ -7,7 +7,7 @@ class BillingWrapper extends Component {
 
   render() {
     console.log(process.env.REACT_APP_STRIPE_KEY);
-    
+
     return(
 
       <StripeCheckout
@@ -17,7 +17,7 @@ class BillingWrapper extends Component {
         token={token => this.props.handleBillingToken(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
-        <button className="btn">
+        <button className="btn add-credits">
           Add $
         </button>
       </StripeCheckout>
